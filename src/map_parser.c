@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_parser.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: toandrad <toandrad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tomas <tomas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 11:35:30 by toandrad          #+#    #+#             */
-/*   Updated: 2025/10/22 12:13:44 by toandrad         ###   ########.fr       */
+/*   Updated: 2025/10/30 14:05:57 by tomas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	count_lines(char *filename)
 	{
 		lines++;
 		free(line);
+		line = get_next_line(fd);
 	}
 	close(fd);
 	return (lines);
@@ -46,7 +47,7 @@ char	**read_map_lines(char *filename, int height)
 	if (fd < 0)
 		error_exit("Error: Cannot open map file");
 	i = 0;
-	while (i++ < height)
+	while (i < height)
 	{
 		line = get_next_line(fd);
 		if (!line)

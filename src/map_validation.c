@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_validation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: toandrad <toandrad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tomas <tomas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 12:13:52 by toandrad          #+#    #+#             */
-/*   Updated: 2025/10/22 12:51:16 by toandrad         ###   ########.fr       */
+/*   Updated: 2025/10/30 14:08:31 by tomas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	is_rectangular(t_map *map)
 	i = 0;
 	while (i < map->height)
 	{
-		if (ft_strlen(map->grid[i]) != map->width)
+		if ((int)ft_strlen(map->grid[i]) != map->width)
 			return (0);
 		i++;
 	}
@@ -82,4 +82,5 @@ int	validate_map(t_map *map)
 		error_exit("Error: Map must be surrounded by walls");
 	if (!has_valid_characters(map))
 		error_exit("Error: Map contains invalid characters");
+	return (1);
 }
