@@ -6,7 +6,7 @@
 /*   By: tomas <tomas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 11:35:30 by toandrad          #+#    #+#             */
-/*   Updated: 2025/10/30 14:05:57 by tomas            ###   ########.fr       */
+/*   Updated: 2025/11/07 15:20:27 by tomas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,12 @@ char	**read_map_lines(char *filename, int height)
 
 void	find_game_elements(t_map *map)
 {
-	int	x;
-	int	y;
-	int	player_count;
-	int	exit_count;
+	int			x;
+	int			y;
+	t_counter	cnt;
 
-	player_count = 0;
-	exit_count = 0;
+	cnt.player_count = 0;
+	cnt.exit_count = 0;
 	map->collectibles = 0;
 	y = 0;
 	while (y < map->height)
@@ -78,17 +77,17 @@ void	find_game_elements(t_map *map)
 		x = 0;
 		while (x < map->width)
 		{
-			set_map_variables(map, player_count, exit_count, x, y);
+			set_map_variables(map, &cnt, x, y);
 			x++;
 		}
 		y++;
 	}
-	if (player_count != 1)
-		error_exit("Error: Map must have exactly 1 player");
-	if (exit_count != 1)
-		error_exit("Error: Map must have exactly 1 exit");
+	if (cnt.player_count != 1)
+		error_exit("Error: Map must have exactly one player.");
+	if (cnt.exit_count != 1)
+		error_exit("Error: Map must have exactly one exit.");
 	if (map->collectibles < 1)
-		error_exit("Error: Map must have at least 1 collectible");
+		error_exit("Error: Map must have at least one collectible.");
 }
 
 t_map	*parse_map(char *filename)

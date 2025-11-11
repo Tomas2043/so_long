@@ -6,7 +6,7 @@
 #    By: tomas <tomas@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/30 14:00:54 by tomas             #+#    #+#              #
-#    Updated: 2025/10/30 14:08:54 by tomas            ###   ########.fr        #
+#    Updated: 2025/11/07 14:37:05 by tomas            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ SRCS = src/map_parser.c \
        src/map_validation.c \
        src/map_helpers.c \
        src/utils.c \
+			 src/pathfinding.c \
 			 src/main.c
 
 # Object files
