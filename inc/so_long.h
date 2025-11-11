@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tomas <tomas@student.42.fr>                +#+  +:+       +#+        */
+/*   By: toandrad <toandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 10:52:01 by toandrad          #+#    #+#             */
-/*   Updated: 2025/11/10 11:58:22 by tomas            ###   ########.fr       */
+/*   Updated: 2025/11/11 11:33:48 by toandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define EXIT 'E'
 # define PLAYER 'P'
 
-# define TILE_SIZE 64
+# define TILE_SIZE 32
 
 # define KEY_W 119
 # define KEY_A 97
@@ -85,6 +85,7 @@ typedef struct s_game
 t_map	*parse_map(char *filename);
 int		validate_map(t_map *map);
 void	free_map(t_map *map);
+void	free_game(t_game *game);
 void	print_map(t_map *map);
 void	error_exit(char *message);
 void	set_map_variables(t_map *map, t_counter *cnt, int x, int y);

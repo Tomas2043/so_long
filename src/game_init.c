@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_init.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tomas <tomas@student.42.fr>                +#+  +:+       +#+        */
+/*   By: toandrad <toandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 11:34:34 by tomas             #+#    #+#             */
-/*   Updated: 2025/11/10 12:35:36 by tomas            ###   ########.fr       */
+/*   Updated: 2025/11/11 12:02:52 by toandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	load_textures(t_game *game)
 	game->floor = load_image(game->mlx, "textures/floor.xpm");
 	game->player = load_image(game->mlx, "textures/player.xpm");
 	game->collectible = load_image(game->mlx, "textures/collectible.xpm");
-	game->exit_img = load_image(game->mlx, "texture/exit.xpm");
+	game->exit_img = load_image(game->mlx, "textures/exit.xpm");
 }
 
 void	init_window(t_game *game)

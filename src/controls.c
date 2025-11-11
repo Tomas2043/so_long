@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   controls.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tomas <tomas@student.42.fr>                +#+  +:+       +#+        */
+/*   By: toandrad <toandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 13:35:14 by tomas             #+#    #+#             */
-/*   Updated: 2025/11/10 14:27:34 by tomas            ###   ########.fr       */
+/*   Updated: 2025/11/11 11:17:31 by toandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,29 @@ static void	move_player(t_game *game, int new_x, int new_y)
 
 int	handle_keypress(int keycode, t_game *game)
 {
-	
+	int	new_x;
+	int	new_y;
+
+	new_x = game->map->player_x;
+	new_y = game->map->player_y;
+	if (keycode == KEY_ESC)
+		handle_close(game);
+	else if (keycode == KEY_W || keycode == KEY_UP)
+		new_y--;
+	else if (keycode == KEY_S || keycode == KEY_DOWN)
+		new_y++;
+	else if (keycode == KEY_A || keycode == KEY_LEFT)
+		new_x--;
+	else if (keycode == KEY_D || keycode == KEY_RIGHT)
+		new_x++;
+	if (can_move(game, new_x, new_y))
+		move_player(game, new_x, new_y);
+	return (0);
+}
+
+int	handle_close(t_game *game)
+{
+	free_game(game);
+	exit(0);
+	return (0);
 }

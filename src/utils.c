@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tomas <tomas@student.42.fr>                +#+  +:+       +#+        */
+/*   By: toandrad <toandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 12:51:32 by toandrad          #+#    #+#             */
-/*   Updated: 2025/11/10 11:16:14 by tomas            ###   ########.fr       */
+/*   Updated: 2025/11/11 11:21:35 by toandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,29 @@ void	print_map(t_map *map)
 		i++;
 	}
 	ft_printf("============\n\n");
+}
+
+void	free_game(t_game *game)
+{
+	if (!game)
+		return ;
+	if (game->wall.img)
+		mlx_destroy_image(game->mlx, game->wall.img);
+	if (game->floor.img)
+		mlx_destroy_image(game->mlx, game->floor.img);
+	if (game->player.img)
+		mlx_destroy_image(game->mlx, game->player.img);
+	if (game->collectible.img)
+		mlx_destroy_image(game->mlx, game->collectible.img);
+	if (game->exit_img.img)
+		mlx_destroy_image(game->mlx, game->exit_img.img);
+	if (game->win)
+		mlx_destroy_window(game->mlx, game->win);
+	if (game->mlx)
+	{
+		mlx_destroy_display(game->mlx);
+		free(game->mlx);
+	}
+	free_map(game->map);
+	free(game);
 }

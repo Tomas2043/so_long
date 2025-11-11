@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tomas <tomas@student.42.fr>                +#+  +:+       +#+        */
+/*   By: toandrad <toandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 12:33:48 by tomas             #+#    #+#             */
-/*   Updated: 2025/11/10 13:27:56 by tomas            ###   ########.fr       */
+/*   Updated: 2025/11/11 11:45:12 by toandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	render_tile(t_game *game, int x, int y)
 		put_img(game, game->collectible, x, y);
 	else if (tile == EXIT)
 		put_img(game, game->exit_img, x, y);
-	else if (tile == PLAYER, x, y)
+	else if (tile == PLAYER)
 		put_img(game, game->player, x, y);
 }
 
