@@ -55,7 +55,7 @@ LIBFT = $(LIBFT_DIR)/libft.a
 # MLX
  MLX_DIR = minilibx-linux
  MLX = $(MLX_DIR)/libmlx.a
- MLX_FLAGS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
+ MLX_FLAGS = -L$(MLX_DIR) -lmlx -L/opt/X11/lib -lXext -lX11 -lm
 
 all: $(LIBFT) $(MLX) $(NAME)
 

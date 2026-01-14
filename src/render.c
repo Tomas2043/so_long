@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: toandrad <toandrad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tomas <tomas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 12:33:48 by tomas             #+#    #+#             */
-/*   Updated: 2025/11/11 11:45:12 by toandrad         ###   ########.fr       */
+/*   Updated: 2026/01/14 14:37:59 by tomas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	put_img(t_game *game, t_img img, int x, int y)
 static void	render_tile(t_game *game, int x, int y)
 {
 	char	tile;
-	
+
 	tile = game->map->grid[y][x];
 	put_img(game, game->floor, x, y);
 	if (tile == WALL)
