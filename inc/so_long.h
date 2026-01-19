@@ -6,7 +6,7 @@
 /*   By: toandrad <toandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 10:52:01 by toandrad          #+#    #+#             */
-/*   Updated: 2025/11/11 11:33:48 by toandrad         ###   ########.fr       */
+/*   Updated: 2026/01/19 13:55:03 by toandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,5 +100,6 @@ void	put_img(t_game *game, t_img img, int x, int y);
 
 int		handle_keypress(int keycode, t_game *game);
 int		handle_close(t_game *game);
+void	close_and_exit(int fd, char *msg);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_parser.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tomas <tomas@student.42.fr>                +#+  +:+       +#+        */
+/*   By: toandrad <toandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 11:35:30 by toandrad          #+#    #+#             */
-/*   Updated: 2025/11/07 15:20:27 by tomas            ###   ########.fr       */
+/*   Updated: 2026/01/19 14:22:47 by toandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ char	**read_map_lines(char *filename, int height)
 	{
 		line = get_next_line(fd);
 		if (!line)
-			error_exit("Error: Reading map failed");
-		if (line[ft_strlen(line) - 1] == '\n')
+			close_and_exit(fd, "Error: Reading map failed");
+		if (ft_strlen(line) > 0 && line[ft_strlen(line) - 1] == '\n')
 			line[ft_strlen(line) - 1] = '\0';
 		grid[i] = line;
 		i++;
@@ -102,8 +102,12 @@ t_map	*parse_map(char *filename)
 	if (!map)
 		error_exit("Error: Memory allocation failed");
 	map->height = count_lines(filename);
+	if (!map->height)
+		error_exit("Error: Map file is empty");
 	map->grid = read_map_lines(filename, map->height);
 	map->width = ft_strlen(map->grid[0]);
+	if (map->width == 0)
+		error_exit("Error: Map has an empty line");
 	find_game_elements(map);
 	return (map);
 }

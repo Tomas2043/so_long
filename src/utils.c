@@ -6,7 +6,7 @@
 /*   By: toandrad <toandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 12:51:32 by toandrad          #+#    #+#             */
-/*   Updated: 2025/11/11 11:21:35 by toandrad         ###   ########.fr       */
+/*   Updated: 2026/01/19 13:54:06 by toandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,10 @@ void	free_game(t_game *game)
 	}
 	free_map(game->map);
 	free(game);
+}
+
+void	close_and_exit(int fd, char *msg)
+{
+	close(fd);
+	error_exit(msg);
 }

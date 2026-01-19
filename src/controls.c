@@ -6,7 +6,7 @@
 /*   By: toandrad <toandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 13:35:14 by tomas             #+#    #+#             */
-/*   Updated: 2025/11/11 12:31:45 by toandrad         ###   ########.fr       */
+/*   Updated: 2026/01/19 14:16:26 by toandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,8 @@ int	handle_keypress(int keycode, t_game *game)
 		new_x--;
 	else if (keycode == KEY_D || keycode == KEY_RIGHT)
 		new_x++;
-	if (can_move(game, new_x, new_y))
+	if ((new_x != game->map->player_x || new_y != game->map->player_y)
+		&& can_move(game, new_x, new_y))
 		move_player(game, new_x, new_y);
 	return (0);
 }

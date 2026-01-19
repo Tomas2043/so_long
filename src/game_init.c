@@ -6,7 +6,7 @@
 /*   By: toandrad <toandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 11:34:34 by tomas             #+#    #+#             */
-/*   Updated: 2025/11/11 12:02:52 by toandrad         ###   ########.fr       */
+/*   Updated: 2026/01/19 14:24:25 by toandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ t_game	*init_game(char *map_file)
 	t_game	*game;
 
 	game = malloc(sizeof(t_game));
+	ft_memset(game, 0, sizeof(t_game));
 	if (!game)
 		error_exit("Error: Memory allocation failed");
 	game->mlx = mlx_init();
@@ -59,7 +60,7 @@ t_game	*init_game(char *map_file)
 	game->map = parse_map(map_file);
 	if (!validate_map(game->map))
 		error_exit("Error: Invalid map");
-	if (!validate_map(game->map))
+	if (!validate_path(game->map))
 		error_exit("Error: Map is not solvable");
 	game->moves = 0;
 	game->collected = 0;
