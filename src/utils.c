@@ -6,7 +6,7 @@
 /*   By: toandrad <toandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 12:51:32 by toandrad          #+#    #+#             */
-/*   Updated: 2026/01/19 13:54:06 by toandrad         ###   ########.fr       */
+/*   Updated: 2026/01/22 11:05:44 by toandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,24 +37,6 @@ void	free_map(t_map *map)
 		free(map->grid);
 	}
 	free(map);
-}
-
-void	print_map(t_map *map)
-{
-	int	i;
-
-	ft_printf("\n=== MAP INFO ===\n");
-	ft_printf("Width: %d, Height: %d\n", map->width, map->height);
-	ft_printf("Player: (%d, %d)\n", map->player_x, map->player_y);
-	ft_printf("Exit: (%d, %d)\n", map->exit_x, map->exit_y);
-	ft_printf("Collectibles: %d\n\n", map->collectibles);
-	i = 0;
-	while (i < map->height)
-	{
-		ft_printf("%s", map->grid[i]);
-		i++;
-	}
-	ft_printf("============\n\n");
 }
 
 void	free_game(t_game *game)

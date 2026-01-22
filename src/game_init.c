@@ -6,7 +6,7 @@
 /*   By: toandrad <toandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 11:34:34 by tomas             #+#    #+#             */
-/*   Updated: 2026/01/19 14:24:25 by toandrad         ###   ########.fr       */
+/*   Updated: 2026/01/22 13:04:23 by toandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ t_game	*init_game(char *map_file)
 	t_game	*game;
 
 	game = malloc(sizeof(t_game));
-	ft_memset(game, 0, sizeof(t_game));
 	if (!game)
 		error_exit("Error: Memory allocation failed");
+	ft_memset(game, 0, sizeof(t_game));
 	game->mlx = mlx_init();
 	if (!game->mlx)
 		error_exit("Error: MLX Initialization failed");

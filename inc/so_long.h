@@ -6,7 +6,7 @@
 /*   By: toandrad <toandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 10:52:01 by toandrad          #+#    #+#             */
-/*   Updated: 2026/01/19 13:55:03 by toandrad         ###   ########.fr       */
+/*   Updated: 2026/01/22 11:21:19 by toandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,6 @@ t_map	*parse_map(char *filename);
 int		validate_map(t_map *map);
 void	free_map(t_map *map);
 void	free_game(t_game *game);
-void	print_map(t_map *map);
 void	error_exit(char *message);
 void	set_map_variables(t_map *map, t_counter *cnt, int x, int y);
 int		validate_path(t_map *map);
